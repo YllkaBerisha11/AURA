@@ -4,8 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="assets/style.css">
     <title>AURA</title>
+    <style>
+       nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fcecfb;
+            color: #0b8d1f;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav .logo {
+            font-size: 40px;
+            font-weight: bold;
+            color: #0a0309;
+            padding: 0 100px 0 100px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 50px;
+            margin: 0;
+            padding: 0 200px;
+        }
+        nav ul li a {
+    text-decoration: none;
+    color: rgb(6, 3, 3);
+    transition: 0.5s;
+    font-size: 30px; 
+}
+        nav ul li a:hover {
+            color: #8f8e8e;
+            transform: scale(1.1);
+            text-decoration: underline;
+        }
+        .contact
+{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(220, 220, 220, 0.2);
+    padding: 40px 0;
+}
+
+.contact h1
+{
+    font-size: 40px;
+    padding: 40px 0;
+}
+
+.contact-form
+{
+    font-size: 18px;
+    display: grid;
+}
+
+.contact-form label
+{
+    font-size: 18px;
+    display: flex;
+    padding: 10px;
+}
+
+.contact-form input
+{
+    width: 600px;
+    height: 50px;
+    padding: 20px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.3), 0 5px 20px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    border: 2px solid var(--primare);
+    margin: 10px;
+    font-size: 17px;
+}
+
+.contact textarea
+{
+    border: 2px solid var(--primare);
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.3), 0 5px 20px 0 rgba(0, 0, 0, 0.3);
+    width: 600px;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px;
+    font-family: Arial;
+    font-size: 17px;
+}
+
+#send-button
+{
+    display: flex;
+    justify-content: center;
+    background-color: var(--primare);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+#send-button:hover
+{
+    background-color: greenyellow;
+    transition: 0.5s;
+}
+
+
+/* dizajni i kontaktit - perfundimi */
+
+
+    </style>
 </head>
     <body>
         <nav>

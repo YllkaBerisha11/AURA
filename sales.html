@@ -8,8 +8,156 @@
     <title>Sales</title>
 
 </head>
+<style>
+
+nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fcecfb;
+            color: #0b8d1f;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav .logo {
+            font-size: 40px;
+            font-weight: bold;
+            color: #0a0309;
+            padding: 0 100px 0 100px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 50px;
+            margin: 0;
+            padding: 0 200px;
+        }
+        nav ul li a {
+    text-decoration: none;
+    color: rgb(6, 3, 3);
+    transition: 0.5s;
+    font-size: 30px; 
+}
+        nav ul li a:hover {
+            color: #8f8e8e;
+            transform: scale(1.1);
+            text-decoration: underline;
+        }
+        main{
+        text-align: center;
+            padding: 50px 20px;
+            background-color: #ffe6f2; /* Light pink background */
+            border: 4px solid #f28db5; /* Pink border below */
+            margin-bottom: 30px;
+        }
+
+        main h2 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #333; /* Dark gray text */
+            margin-bottom: 10px;
+        }
+
+        main p {
+            font-size: 1.2rem;
+            color: #666; /* Lighter gray for contrast */
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+
+
+     footer {
+background-color: #9a95b7;
+background-size: cover;
+color: white;
+padding: 20px 0;
+font-family: Arial, sans-serif;
+}
+
+.footer-container {
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+max-width: 1300px;
+margin: 0 auto;
+}
+
+.footer-container div {
+flex: 1;
+min-width: 200px;
+text-align: left;
+margin-bottom: 20px;
+}
+
+.footer-container h4 {
+margin-bottom: 10px;
+color: white;
+}
+
+.footer-container p {
+margin: 5px 0;
+font-size: 14px;
+}
+
+.footer-container p a {
+color: white;
+text-decoration: none;
+}
+
+.footer-container p a:hover {
+text-decoration: underline;
+}
+
+.footer-container i {
+margin-right: 5px;
+}
+
+.footer-container img {
+vertical-align: middle;
+margin-right: 5px;
+}
+
+.footer-container .social-links a {
+display: block;
+margin-bottom: 5px;
+}
+
+.footer-container .social-links a img {
+margin-right: 5px;
+}
+
+footer div:last-child {
+text-align: center;
+margin-top: 20px;
+border-top: 1px solid white;
+padding-top: 10px;
+}
+
+footer div:last-child p {
+font-size: 14px;
+}
+</style>
 
 <body>
+    <!--Shiriti navigimit-->
+    <nav>
+
+        <label class="logo">AURA</label>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#aboutus">About Us</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#sales">Sales</a></li>
+            <li><a href="#contactus">Contact Us</a></li>
+        </ul>
+    </nav>
+    <br>
+    <br>
+    <br>
     <main>
         <h2>Discover All Our Special Offers</h2>
         <p>
@@ -17,10 +165,12 @@
          Buy your makeup and favorite products at special prices.
         </p>
     </main>
+
     <div class="Black Friday Sales"></div>
    <h1>BLACK FRIDAY</h1>
    <p>Buy 3 products and get 3 more for FREE!</p>
    <img src="assets/kikoo.png" alt="Black Friday Sale">
+   <button>Dont miss it!</button>
 
    <br>
    <br>
@@ -29,6 +179,7 @@
    <h2>Enjoy 50% off YSL Beauty</h2>
    <P>Royal treatment unlocked! Shop our limited edition Aura Collection.</P>
    <img src="assets/ysl.png" alt="YSL Collection">
+   <button>Dont miss it!</button>
 
     <br>
     <br>
@@ -38,6 +189,7 @@
     <p>Enjoy unique benefits, tailor-made beauty consultations/services and surprise gifts throughout the year. 
         Be inspired by beauty!</p>
     <img src="assets/auragift.png" alt="AURA ME">
+    <button>Join Us</button>
     
     <!--Footeri-->
 <footer>

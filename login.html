@@ -5,10 +5,112 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login and Register</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+   .container {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffb3d9, #ff66b2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 100%;
+      max-width: 450px;
+    }
+
+    .form-container {
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    input:focus {
+      border-color: #e91e63;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #c2185b;
+    }
+
+    p {
+      text-align: center;
+      color: #555;
+    }
+
+    a {
+      color: #e91e63;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .error-message {
+      color: #ff4d6d;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .success-message {
+      color: #4caf50;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <!-- Login Form -->
     <div class="form-container" id="login-form">
       <h2>Login</h2>
       <form>
@@ -25,18 +127,17 @@
       </form>
     </div>
 
-    <!-- Register Form -->
     <div class="form-container" id="register-form" style="display: none;">
       <h2>Register</h2>
-      <form>
+      <form id="registerForm">
         <div class="input-group">
           <label for="register-name">Name:</label>
           <input type="text" id="register-name" placeholder="Enter your name" required>
         </div>
         <div class="input-group">
-            <label for="register-name">Last Name:</label>
-            <input type="text" id="register-name" placeholder="Enter your Last Name" required>
-          </div>
+          <label for="register-lastname">Last Name:</label>
+          <input type="text" id="register-lastname" placeholder="Enter your last name" required>
+        </div>
         <div class="input-group">
           <label for="register-email">Email:</label>
           <input type="email" id="register-email" placeholder="Enter your email" required>
@@ -46,25 +147,50 @@
           <input type="password" id="register-password" placeholder="Enter your password" required>
         </div>
         <div class="input-group">
-            <label for="register-name">City:</label>
-            <input type="text" id="register-City" placeholder="Enter your City" required>
-          </div>
+          <label for="register-city">City:</label>
+          <input type="text" id="register-city" placeholder="Enter your city" required>
+        </div>
         <button type="submit">Register</button>
         <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
       </form>
+      <p class="error-message" id="register-error" style="display: none;">Please fill in all fields.</p>
+      <p class="success-message" id="register-success" style="display: none;">Registration successful!</p>
     </div>
   </div>
+
   <script>
-  function showRegister() {
-    document.getElementById('login-form').style.display = 'none';
-    document.getElementById('register-form').style.display = 'block';
-  }
-  
-  function showLogin() {
-    document.getElementById('register-form').style.display = 'none';
-    document.getElementById('login-form').style.display = 'block';
-  }
-</script>
+    function showRegister() {
+      document.getElementById('login-form').style.display = 'none';
+      document.getElementById('register-form').style.display = 'block';
+      document.getElementById('register-error').style.display = 'none';
+      document.getElementById('register-success').style.display = 'none';
+    }
+
+    function showLogin() {
+      document.getElementById('register-form').style.display = 'none';
+      document.getElementById('login-form').style.display = 'block';
+      document.getElementById('register-error').style.display = 'none';
+      document.getElementById('register-success').style.display = 'none';
+    }
+
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var name = document.getElementById('register-name').value;
+      var lastname = document.getElementById('register-lastname').value;
+      var email = document.getElementById('register-email').value;
+      var password = document.getElementById('register-password').value;
+      var city = document.getElementById('register-city').value;
+
+      if (name === "" || lastname === "" || email === "" || password === "" || city === "") {
+        document.getElementById('register-error').style.display = 'block';
+        document.getElementById('register-success').style.display = 'none';
+      } else {
+        document.getElementById('register-error').style.display = 'none';
+        document.getElementById('register-success').style.display = 'block';
+      }
+    });
+  </script>
   <script src="script.js"></script>
 </body>
 </html>

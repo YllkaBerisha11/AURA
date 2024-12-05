@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>AURA</title>
     <style>
-        nav {
+         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -42,7 +42,7 @@
             text-decoration: underline;
         }
 
-        /* Pjesa kryesore e faqes */
+        
         .hero {
             background-image:url(Makeup/herogirl.webp) ;
             background-size: cover;
@@ -68,7 +68,6 @@
             color: white;
         }
 
-        /* Stilet për Seksionin e Produkteve */
         .Products {
             text-align: center;
             padding: 50px 50px;
@@ -84,7 +83,7 @@
             margin-top: 5px;
         }
 
-        /* Flexbox për shfaqjen e produkteve */
+      
         .product-grid {
             display: flex;
             justify-content: center;
@@ -94,7 +93,7 @@
             overflow-x: hidden;
         }
 
-        /* Kutitë e produkteve me rreth */
+       
         
         .product-box {
             background-color: rgb(254, 254, 254);
@@ -133,14 +132,14 @@
             background-color: #f4a261;
         }
 
-        /* Kategoritë me katrorë dhe dimensione të njëjta për foto dhe emra */
+        
         .Products {
     text-align: center;
-    padding: 30px 50px;
+    padding: 30px 30px;
     background-color:  #fcecfb;
-    width: 100%;
+    max-width: 1300px;
     margin: 0 auto;
-    padding-bottom: 50px; 
+    padding-bottom: 20px;
     position: relative; 
 }
 .Products h1 {
@@ -182,6 +181,7 @@
 }
 
 .card .front {
+
     position: relative;
     width: 100%;
     height: 300px; 
@@ -208,7 +208,7 @@
     font-weight: bold;
 }
 
-        /* Responsivitet për ekrane më të vegjël */
+       
         @media (max-width: 768px) {
             .product-box {
                 width: 200px;
@@ -229,77 +229,98 @@
         }
 
         footer {
-background-color: #9a95b7;
-background-size: cover;
-color: white;
-padding: 20px 0;
-font-family: Arial, sans-serif;
+    background-color: #0b233d;
+    color: #ffffff;
+    padding: 30px 0;
+    font-family: Arial, sans-serif;
 }
 
 .footer-container {
-display: flex;
-justify-content: space-around;
-flex-wrap: wrap;
-max-width: 1300px;
-margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1300px;
+    margin: 0 auto;
+    gap: 200px;
 }
 
 .footer-container div {
-flex: 1;
-min-width: 200px;
-text-align: left;
-margin-bottom: 20px;
+    flex: 1;
+    min-width: 200px;
+    text-align: left;
 }
 
 .footer-container h4 {
-margin-bottom: 10px;
-color: white;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #e8e8e8;
+    border-bottom: 2px solid #f9a826; 
+    padding-bottom: 0px;
+    padding-top: 2px;
 }
 
 .footer-container p {
-margin: 5px 0;
-font-size: 14px;
+    margin: 5px 0;
+    font-size: 14px;
+    color: #c7c7c7;
 }
 
 .footer-container p a {
-color: white;
-text-decoration: none;
+    color: #f9a826;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .footer-container p a:hover {
-text-decoration: underline;
+    color: #ffffff;
+    text-decoration: underline;
 }
 
 .footer-container i {
-margin-right: 5px;
+    margin-right: 10px;
+    color: #f9a826;
 }
 
 .footer-container img {
-vertical-align: middle;
-margin-right: 5px;
+    vertical-align: middle;
+    margin-right: 10px;
 }
 
-.footer-container .social-links a {
-display: block;
-margin-bottom: 5px;
+.footer-social a {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    color: #c7c7c7;
+    text-decoration: none;
+    margin-bottom: 15px;
+    font-size: 14px;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.footer-container .social-links a img {
-margin-right: 5px;
+.footer-social a:hover {
+    color: #ffffff;
+    transform: scale(1.1);
 }
 
-footer div:last-child {
-text-align: center;
-margin-top: 20px;
-border-top: 1px solid white;
-padding-top: 10px;
+.footer-social img {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
 }
 
-footer div:last-child p {
-font-size: 14px;
+.footer-copyright {
+    text-align: center; 
+    margin-top: 30px;
+    border-top: 1px solid #4a4a4a;
+    padding-top: 15px;
+    font-size: 14px;
+    color: #c7c7c7;
 }
-         
+
     </style>
+       
 </head>
 
 <body>
@@ -432,13 +453,9 @@ font-size: 14px;
         <a href="#" target="_blank"><img src="AURA/icons/icons8-twitter-20.png" alt="">Twitter</a>
   
         <a href="#" target="_blank"><img src="AURA/icons/icons8-instagram-20.png" alt="">Instagram</a>
-  
-  
-      </div>
-  
-      <div class="footer-copyright">
-  
+
         <p>&copy; 2024 AURA. All rights reserved.</p>
+  
   
       </div>
   

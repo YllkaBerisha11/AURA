@@ -33,13 +33,7 @@ nav ul li a:hover {
     transform: scale(1.1);
     text-decoration: underline;
 }
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f0f6;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
+
 
 .container {
     max-width: 900px;

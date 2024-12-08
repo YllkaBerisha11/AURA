@@ -5,20 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login and Register</title>
   <link rel="stylesheet" href="login.css">
-  <link rel="stylesheet" href="register.html" >
 </head>
 <body>
-<<<<<<< HEAD
-=======
   <div class="close-btn">
     <a href="home.html" title="Back to Aura Home">&times;</a>
   </div>
->>>>>>> 5392514791ac4ce43541bdc3b30dd8be5b82c1a7
-
   <div class="container">
     <div class="form-container" id="login-form">
       <h2>Login</h2>
-      <form>
+      <form id="loginForm">
         <div class="input-group">
           <label for="login-email">Email:</label>
           <input type="email" id="login-email" placeholder="Enter your email" required>
@@ -29,6 +24,7 @@
         </div>
         <button type="submit">Login</button>
         <p>Don't have an account? <a href="#" onclick="showRegister()">Register here</a></p>
+        <p class="error-message" id="login-error" style="display: none;">Invalid email or password format.</p>
       </form>
     </div>
 
@@ -57,9 +53,9 @@
         </div>
         <button type="submit">Register</button>
         <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+        <p class="error-message" id="register-error" style="display: none;">Invalid input in one or more fields.</p>
+        <p class="success-message" id="register-success" style="display: none;">Registration successful!</p>
       </form>
-      <p class="error-message" id="register-error" style="display: none;">Please fill in all fields.</p>
-      <p class="success-message" id="register-success" style="display: none;">Registration successful!</p>
     </div>
   </div>
 
@@ -67,27 +63,49 @@
     function showRegister() {
       document.getElementById('login-form').style.display = 'none';
       document.getElementById('register-form').style.display = 'block';
-      document.getElementById('register-error').style.display = 'none';
-      document.getElementById('register-success').style.display = 'none';
     }
 
     function showLogin() {
       document.getElementById('register-form').style.display = 'none';
       document.getElementById('login-form').style.display = 'block';
-      document.getElementById('register-error').style.display = 'none';
-      document.getElementById('register-success').style.display = 'none';
     }
 
+  
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const nameRegex = /^[A-Za-z]+$/;
+
+   
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      if (!emailRegex.test(email) || !passwordRegex.test(password)) {
+        document.getElementById('login-error').style.display = 'block';
+      } else {
+        document.getElementById('login-error').style.display = 'none';
+        alert('Login successful!');
+      }
+    });
+
+    
     document.getElementById('registerForm').addEventListener('submit', function(event) {
       event.preventDefault();
 
-      var name = document.getElementById('register-name').value;
-      var lastname = document.getElementById('register-lastname').value;
-      var email = document.getElementById('register-email').value;
-      var password = document.getElementById('register-password').value;
-      var city = document.getElementById('register-city').value;
+      const name = document.getElementById('register-name').value;
+      const lastname = document.getElementById('register-lastname').value;
+      const email = document.getElementById('register-email').value;
+      const password = document.getElementById('register-password').value;
+      const city = document.getElementById('register-city').value;
 
-      if (name === "" || lastname === "" || email === "" || password === "" || city === "") {
+      if (
+        !nameRegex.test(name) ||
+        !nameRegex.test(lastname) ||
+        !emailRegex.test(email) ||
+        !passwordRegex.test(password) ||
+        !nameRegex.test(city)
+      ) {
         document.getElementById('register-error').style.display = 'block';
         document.getElementById('register-success').style.display = 'none';
       } else {
@@ -96,6 +114,5 @@
       }
     });
   </script>
-  <script src="script.js"></script>
 </body>
 </html>

@@ -352,4 +352,177 @@ footer {
     font-size: 14px;
     color: #c7c7c7;
     }
+
+    @media (max-width: 1024px) {
+        nav {
+            padding: 10px 10px;
+        }
+    
+        nav .logo {
+            font-size: 2rem;
+            padding: 0 20px;
+        }
+    
+        nav ul {
+            padding: 0;
+            gap: 20px;
+        }
+    
+        nav ul li a {
+            font-size: 1.3rem;
+        }
+    
+        main h2 {
+            font-size: 2.5rem;
+        }
+    
+        main p {
+            font-size: 1rem;
+            padding: 0 20px;
+        }
+    
+        .blackfriday, .promotion-YSL, .AuraME {
+            padding: 30px 15px;
+        }
+    
+        .blackfriday h1, .promotion-YSL h2, .AuraME h3 {
+            font-size: 2rem;
+        }
+    
+        .blackfriday p, .promotion-YSL p, .AuraME p {
+            font-size: 1rem;
+        }
+    
+        .blackfriday img, .promotion-YSL img, .AuraME img {
+            width: 90%;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        body {
+            padding: 0;
+        }
+    
+        nav {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px 20px;
+        }
+    
+        nav ul {
+            display: block;
+            width: 100%;
+            padding: 0;
+            gap: 15px;
+            text-align: center;
+        }
+    
+        nav ul li a {
+            font-size: 1.3rem;
+        }
+    
+        .blackfriday, .promotion-YSL, .AuraME {
+            padding: 30px 15px;
+        }
+    
+        .blackfriday h1, .promotion-YSL h2, .AuraME h3 {
+            font-size: 1.6rem;
+        }
+    
+        .blackfriday p, .promotion-YSL p, .AuraME p {
+            font-size: 1rem;
+        }
+    
+        .footer-container {
+            flex-direction: column;
+            gap: 30px;
+        }
+    
+        .footer-container div {
+            min-width: 100%;
+            text-align: center;
+        }
+    
+        .footer-social a {
+            font-size: 1.2rem;
+        }
+    }
+    
+    footer {
+        background-color: #0b233d;
+        color: #ffffff;
+        padding: 30px 20px;
+        font-family: Arial, sans-serif;
+    }
+    
+    .footer-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        max-width: 800px;
+        margin: 0 auto;
+        gap: 30px;
+    }
+    
+    .footer-container div {
+        flex: 1;
+        min-width: 200px;
+        text-align: left;
+    }
+    
+    .footer-container h4 {
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #e8e8e8;
+        border-bottom: 2px solid #f9a826;
+    }
+    
+    .footer-container p {
+        margin: 5px 0;
+        font-size: 14px;
+        color: #c7c7c7;
+    }
+    
+    .footer-container p a {
+        color: #f9a826;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    
+    .footer-container p a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+    
+    .footer-container i {
+        margin-right: 10px;
+        color: #f9a826;
+    }
+    
+    .footer-social a {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        color: #c7c7c7;
+        text-decoration: none;
+        margin-bottom: 15px;
+        font-size: 14px;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+    
+    .footer-social a:hover {
+        color: #ffffff;
+        transform: scale(1.1);
+    }
+    
+    .footer-copyright {
+        text-align: center;
+        margin-top: 30px;
+        border-top: 1px solid #4a4a4a;
+        padding-top: 15px;
+        font-size: 14px;
+        color: #c7c7c7;
+    }
     

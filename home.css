@@ -315,6 +315,7 @@ body{
   font-size: 14px;
   color: #c7c7c7;
   }
+ 
   @media (max-width: 768px) {
     nav ul {
       flex-direction: column;

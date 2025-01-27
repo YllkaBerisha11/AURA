@@ -11,10 +11,14 @@
     <nav>
         <label class="logo">AURA</label>
         <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="aboutUs.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="sales.html">Sales</a></li>
+            <li><a href="contactUs.html">Contact Us</a></li>
+            <li><a href="login.html"><i class="fa fa-user-plus"></i></a></li>
             <li><a href="cart.html" id="cart-icon"><i class="fa fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
             <li><a href="favorites.html" id="favorites-icon"><i class="fa fa-heart"></i> <span id="favorites-count">0</span></a></li>
-          
-
         </ul>
     </nav>
 
@@ -25,81 +29,71 @@
         </div>
         <button id="checkout" class="checkout-button">Proceed to Checkout</button>
     </div>
-    <div class="cart-item">
-      <h3>Product 1</h3>
-      <p>$20</p>
-      <button class="remove-from-cart">Remove</button>
-  </div>
 
     <script>
-       document.addEventListener('DOMContentLoaded', function() {
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            const productElement = e.target.closest('.product');
-            const productId = productElement.getAttribute('data-id');
-            const productName = productElement.querySelector('h3').textContent;
-            const productPrice = productElement.querySelector('p').textContent;
+        // Funksioni për të shfaqur produktet e shtuara në cart
+        function displayCart() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const cartItemsContainer = document.getElementById("cart-items");
 
-            const product = {
-                id: productId,
-                name: productName,
-                price: productPrice,
-            };
+            // Përshtatja dinamike e përmbajtjes së cart
+            cartItemsContainer.innerHTML = ''; // Pastroj përmbajtjen ekzistuese
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `<p>Your cart is empty</p>`;
+            } else {
+                cart.forEach(product => {
+                    const productBox = document.createElement('div');
+                    productBox.classList.add('product-box');
+                    productBox.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-title">${product.name}</h3>
+                            <p class="product-price">${product.price}</p>
+                        </div>
+                        <button class="remove-from-cart">Remove</button>
+                    `;
+                    cartItemsContainer.appendChild(productBox);
+                });
+            }
+        }
 
-            // Add product to cart array
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.push(product);
-            localStorage.setItem('cart', JSON.stringify(cart));
+        // Funksioni për të hequr një produkt nga cart
+        function removeFromCart(productToRemove) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart = cart.filter(product => product.name !== productToRemove.name); // Filtron produktin
+            localStorage.setItem("cart", JSON.stringify(cart));
+            displayCart(); // Përshtat shfaqjen pas heqjes
+            updateCartCount(); // Përditësojmë numrin në navbar
+        }
 
-            // Update cart count in navbar or cart icon
-            updateCartCount();
+        // Përditësojmë numrin në navbar për cart
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            document.getElementById('cart-count').textContent = cart.length;
+        }
+
+        window.onload = function() {
+            displayCart(); // Shfaqim produktet kur ngarkohet faqja
+            updateCartCount(); // Përditësojmë numrin e produkteve në navbar
+        };
+
+        // Eventet për butonat "Remove"
+        document.getElementById('cart-items').addEventListener('click', function(e) {
+            if (e.target.classList.contains('remove-from-cart')) {
+                const productElement = e.target.closest('.product-box');
+                const productName = productElement.querySelector('.product-title').textContent;
+                const productPrice = productElement.querySelector('.product-price').textContent;
+                const productImage = productElement.querySelector('.product-image').src;
+
+                const product = {
+                    name: productName,
+                    price: productPrice,
+                    image: productImage
+                };
+
+                removeFromCart(product); // Heqim produktin nga cart
+            }
         });
-    });
-
-    // Display cart items in cart.html
-    if (document.getElementById('cart-items')) {
-        displayCartItems();
-    }
-});
-
-// Function to display cart items
-function displayCartItems() {
-    const cartItemsContainer = document.getElementById('cart-items');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    cartItemsContainer.innerHTML = '';  // Clear existing items
-
-    cart.forEach(item => {
-        const itemDiv = document.createElement('div');
-        itemDiv.classList.add('cart-item');
-        itemDiv.innerHTML = `
-            <h3>${item.name}</h3>
-            <p>${item.price}</p>
-            <button class="remove-from-cart" data-id="${item.id}">Remove</button>
-        `;
-        cartItemsContainer.appendChild(itemDiv);
-    });
-}
-
-// Remove item from cart
-document.getElementById('cart-items')?.addEventListener('click', function(e) {
-    if (e.target.classList.contains('remove-from-cart')) {
-        const productId = e.target.getAttribute('data-id');
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart = cart.filter(item => item.id !== productId);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        displayCartItems();  // Re-render cart items
-        updateCartCount();   // Update cart count in navbar
-    }
-});
-
-// Update cart item count in navbar
-function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    document.getElementById('cart-count').textContent = cart.length;
-}
     </script>
 
 </body>

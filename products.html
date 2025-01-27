@@ -20,7 +20,6 @@
         <li><a href="login.html"><i class="fa fa-user-plus"></i> </a></li>
         <li><a href="#" id="cart-icon"><i class="fa fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
         <li><a href="#" id="favorites-icon"><i class="fa fa-heart"></i> <span id="favorites-count">0</span></a></li>
-       
     </ul>
 </nav>
 <!DOCTYPE html>
@@ -98,7 +97,7 @@
             </div>
     
             <div class="product-box">
-                <img src="Makeup/rareblush.jpg" alt="Product7" class="product-image">
+                <img src="Makeup/rareblush.jpg" alt="Product7" class="product-image>
                 <h3 class="product-title">Rare Beauty Blush</h3>
                 <p class="product-price">$20</p>
                 <button class="add-to-cart">Add to Cart</button>
@@ -237,74 +236,67 @@
             
         </div>
     </div>
-<script>document.addEventListener('DOMContentLoaded', function() {
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            const productElement = e.target.closest('.product');
-            const productId = productElement.getAttribute('data-id');
-            const productName = productElement.querySelector('h3').textContent;
-            const productPrice = productElement.querySelector('p').textContent;
+    <script>
+        let cartCount = 0;
+        let favoritesCount = 0;
 
-            const product = {
-                id: productId,
-                name: productName,
-                price: productPrice,
-            };
-
-            // Add product to cart array
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        // Funksioni për të shtuar produktin në cart
+        function addToCart(product) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
             cart.push(product);
-            localStorage.setItem('cart', JSON.stringify(cart));
-
-            // Update cart count in navbar or cart icon
+            localStorage.setItem("cart", JSON.stringify(cart));
             updateCartCount();
+        }
+
+        // Funksioni për të shtuar produktin në favorites
+        function addToFavorites(product) {
+            let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+            favorites.push(product);
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+            updateFavoritesCount();
+        }
+
+        // Funksioni për të përditësuar numrin në navbar për cart
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            document.getElementById('cart-count').textContent = cart.length;
+        }
+
+        // Funksioni për të përditësuar numrin në navbar për favorites
+        function updateFavoritesCount() {
+            let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+            document.getElementById('favorites-count').textContent = favorites.length;
+        }
+
+        // Ngarkoni numrin e produkteve që janë shtuar në cart dhe favorites kur faqja ngarkohet
+        window.onload = function() {
+            updateCartCount();
+            updateFavoritesCount();
+        };
+
+        // Eventet për butonat "Add to Cart" dhe "Add to Favorites"
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const product = {
+                    name: e.target.previousElementSibling.previousElementSibling.textContent, // Emri i produktit
+                    price: e.target.previousElementSibling.textContent, // Çmimi i produktit
+                    image: e.target.previousElementSibling.previousElementSibling.previousElementSibling.src // Imazhi i produktit
+                };
+                addToCart(product);
+            });
         });
-    });
 
-    // Display cart items in cart.html
-    if (document.getElementById('cart-items')) {
-        displayCartItems();
-    }
-});
-
-// Function to display cart items
-function displayCartItems() {
-    const cartItemsContainer = document.getElementById('cart-items');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    cartItemsContainer.innerHTML = '';  // Clear existing items
-
-    cart.forEach(item => {
-        const itemDiv = document.createElement('div');
-        itemDiv.classList.add('cart-item');
-        itemDiv.innerHTML = `
-            <h3>${item.name}</h3>
-            <p>${item.price}</p>
-            <button class="remove-from-cart" data-id="${item.id}">Remove</button>
-        `;
-        cartItemsContainer.appendChild(itemDiv);
-    });
-}
-
-// Remove item from cart
-document.getElementById('cart-items')?.addEventListener('click', function(e) {
-    if (e.target.classList.contains('remove-from-cart')) {
-        const productId = e.target.getAttribute('data-id');
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart = cart.filter(item => item.id !== productId);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        displayCartItems();  // Re-render cart items
-        updateCartCount();   // Update cart count in navbar
-    }
-});
-
-// Update cart item count in navbar
-function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    document.getElementById('cart-count').textContent = cart.length;
-}</script>
+        document.querySelectorAll('.favorite').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const product = {
+                    name: e.target.previousElementSibling.textContent, // Emri i produktit
+                    price: e.target.previousElementSibling.previousElementSibling.textContent, // Çmimi i produktit
+                    image: e.target.previousElementSibling.previousElementSibling.previousElementSibling.src // Imazhi i produktit
+                };
+                addToFavorites(product);
+            });
+        });
+    </script></script>
     
     
     <footer>

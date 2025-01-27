@@ -26,6 +26,30 @@
     </ul>
 </nav>
 
+<div class="sidebar-toggle">
+    <i class="fa fa-arrow-left"></i> <!-- Arrow to toggle sidebar -->
+</div>
+
+<!-- Sidebar section -->
+<div class="sidebar">
+    <h2>Side Menu</h2>
+    <ul>
+        <li><a href="#home"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
+        <li><a href="#contact"><i class="fa fa-envelope"></i> Contact</a></li>
+        <li><a href="#offers"><i class="fa fa-gift"></i> Offers</a></li>
+        <li>
+            <a href="javascript:void(0);" class="dropdown-btn"><i class="fa fa-cogs"></i> Settings </i></a>
+            <div class="dropdown-container">
+                <ul>
+                    <li><a href="#makeup-services">Makeup Services</a></li>
+                    <li><a href="#consultation">Consultation</a></li>
+                    <li><a href="#workshops">Workshops</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
 <!--Pjesa kryesore e faqes-->
 <div class="hero">
     <div class="container">
@@ -84,6 +108,8 @@
     </header>
     </div>
 
+
+    
 <!--Produktet-->
 <div class="Products" id="Products">
     <div class="container">
@@ -176,6 +202,20 @@
   }
   document.body.addEventListener('load', ndrroImg());
   </script>
+  <script>
+    // JavaScript për hapjen dhe mbylljen e sidebar-it
+    document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+        document.querySelector('.sidebar').classList.toggle('open');
+        const arrow = document.querySelector('.sidebar-toggle i');
+        if (document.querySelector('.sidebar').classList.contains('open')) {
+            arrow.classList.remove('fa-arrow-left');
+            arrow.classList.add('fa-arrow-right');
+        } else {
+            arrow.classList.remove('fa-arrow-right');
+            arrow.classList.add('fa-arrow-left');
+        }
+    });
+</script>
 
  
 </body>

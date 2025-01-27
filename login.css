@@ -7,7 +7,7 @@
   }
  
   body {
-    background: linear-gradient(135deg, #ffb3d9, #ff66b2);
+    background: linear-gradient(135deg, #4288e4, #66cfff);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +34,7 @@
 
   h2 {
     text-align: center;
-    color: #e91e63;
+    color: #2e047c;
     margin-bottom: 20px;
   }
 
@@ -57,14 +57,14 @@
   }
 
   input:focus {
-    border-color: #e91e63;
+    border-color: #2c1ee9;
     outline: none;
   }
 
   button {
     width: 100%;
     padding: 12px;
-    background-color: #e91e63;
+    background-color: #5b1ee9;
     color: white;
     border: none;
     border-radius: 6px;

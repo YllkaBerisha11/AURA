@@ -7,9 +7,6 @@
   <link rel="stylesheet" href="login.css">
 </head>
 <body>
-  <div class="close-btn">
-    <a href="home.html" title="Back to Aura Home">&times;</a>
-  </div>
   <div class="container">
     <div class="form-container" id="login-form">
       <h2>Login</h2>
@@ -64,53 +61,80 @@
       document.getElementById('login-form').style.display = 'none';
       document.getElementById('register-form').style.display = 'block';
     }
-
+  
     function showLogin() {
       document.getElementById('register-form').style.display = 'none';
       document.getElementById('login-form').style.display = 'block';
     }
 
-  
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    const nameRegex = /^[A-Za-z]+$/;
-
-   
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
+  
+    // Login Handler
+    document.getElementById('loginForm').addEventListener('submit', async function(event) {
       event.preventDefault();
       const email = document.getElementById('login-email').value;
       const password = document.getElementById('login-password').value;
 
-      if (!emailRegex.test(email) || !passwordRegex.test(password)) {
-        document.getElementById('login-error').style.display = 'block';
-      } else {
-        document.getElementById('login-error').style.display = 'none';
-        alert('Login successful!');
+      try {
+        const response = await fetch('process.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({
+            action: 'login',
+            email: email,
+            password: password
+          })
+        });
+
+        const result = await response.json();
+        console.log(result); // Kontrollo përgjigjen
+
+        if (result.success) {
+          alert(`Login successful! Welcome, ${result.role}.`);
+          window.location.href = 'home.html'; // Redirigjo në home.html
+        } else {
+          document.getElementById('login-error').style.display = 'block';
+        }
+      } catch (error) {
+        console.error('Error during login:', error);
       }
     });
 
-    
-    document.getElementById('registerForm').addEventListener('submit', function(event) {
+    // Register Handler
+    document.getElementById('registerForm').addEventListener('submit', async function(event) {
       event.preventDefault();
-
       const name = document.getElementById('register-name').value;
       const lastname = document.getElementById('register-lastname').value;
       const email = document.getElementById('register-email').value;
       const password = document.getElementById('register-password').value;
       const city = document.getElementById('register-city').value;
 
-      if (
-        !nameRegex.test(name) ||
-        !nameRegex.test(lastname) ||
-        !emailRegex.test(email) ||
-        !passwordRegex.test(password) ||
-        !nameRegex.test(city)
-      ) {
-        document.getElementById('register-error').style.display = 'block';
-        document.getElementById('register-success').style.display = 'none';
-      } else {
-        document.getElementById('register-error').style.display = 'none';
-        document.getElementById('register-success').style.display = 'block';
+      try {
+        const response = await fetch('process.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({
+            action: 'register',
+            name: name,
+            lastname: lastname,
+            email: email,
+            password: password,
+            city: city
+          })
+        });
+
+        const result = await response.text();
+
+        if (result === 'success') {
+          document.getElementById('register-success').style.display = 'block';
+          setTimeout(function() {
+            window.location.href = 'home.html'; // Redirigjo në home.html pas 2 sekondash
+          }, 2000); // Shfaq mesazhin dhe pastaj dërgo në home.html pas 2 sekondash
+        } else {
+          document.getElementById('register-error').style.display = 'block';
+        }
+      } catch (error) {
+        console.error('Error during registration:', error);
       }
     });
   </script>

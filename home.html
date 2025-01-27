@@ -31,7 +31,6 @@
     <div class="container">
         <div class="hero-elements">
             <h1 class="title">Holiday Wonderlights Limited Edition </h1>
-            <button class="button-hero">Read more</button>
         </div>
     </div>
 </div>
@@ -77,6 +76,13 @@
 
 
 </div>
+
+<!--Slideshow-->
+<div id="kontenti">
+    <header>
+    <img name="mySlide" id="slideshow" />
+    </header>
+    </div>
 
 <!--Produktet-->
 <div class="Products" id="Products">
@@ -150,7 +156,26 @@
     </div>
   
   </footer>
-      
+  <script>
+    var i = 0;
+    var imgArray = [
+    "Makeup/HeroRare.jpg",
+    "Makeup/rarefotos.jpg",
+    "Makeup/baking.jpg",
+    "Makeup/qikatslider.png",
+    "Makeup/sherki.webp"
+    ];
+    function ndrroImg() {
+    document.getElementById('slideshow').src = imgArray[i];
+    if (i < imgArray.length - 1) {
+    i++;
+    } else {
+    i = 0;
+    }
+    setTimeout("ndrroImg()",4000 )
+    }
+    document.body.addEventListener('load', ndrroImg());
+    </script>
 
 
 </body>

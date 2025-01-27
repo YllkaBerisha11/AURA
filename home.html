@@ -26,6 +26,21 @@
     </ul>
 </nav>
 
+<div class="sidebar-toggle">
+    <i class="fa fa-arrow-left"></i> <!-- Shigjetë -->
+</div>
+
+<!-- Kjo është shigjeta që mund të hapë seksionin që do të shfaqet në anën e majtë -->
+<div class="sidebar">
+    <h2>Side Menu</h2>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</div>
+
+
 <!--Pjesa kryesore e faqes-->
 <div class="hero">
     <div class="container">
@@ -84,6 +99,8 @@
     </header>
     </div>
 
+
+    
 <!--Produktet-->
 <div class="Products" id="Products">
     <div class="container">
@@ -176,6 +193,20 @@
   }
   document.body.addEventListener('load', ndrroImg());
   </script>
+  <script>
+    // JavaScript për hapjen dhe mbylljen e sidebar-it
+    document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+        document.querySelector('.sidebar').classList.toggle('open');
+        const arrow = document.querySelector('.sidebar-toggle i');
+        if (document.querySelector('.sidebar').classList.contains('open')) {
+            arrow.classList.remove('fa-arrow-left');
+            arrow.classList.add('fa-arrow-right');
+        } else {
+            arrow.classList.remove('fa-arrow-right');
+            arrow.classList.add('fa-arrow-left');
+        }
+    });
+</script>
 
  
 </body>

@@ -54,11 +54,11 @@ body{
     font-size: 24px;
 }
 
-/* Sidebar (menyja anësore) */
+
 .sidebar {
     position: fixed;
     top: 0;
-    left: -250px; /* Fillimisht jashtë faqes */
+    left: -250px; 
     width: 250px;
     height: 100%;
     background-color: #333;
@@ -87,9 +87,9 @@ body{
     color: #007bff;
 }
 
-/* Kur shfaqet sidebar (duke përdorur JS për ta aktivizuar) */
+
 .sidebar.open {
-    left: 0; /* Shfaqet mbi hero dhe përmbajtjen e tjera */
+    left: 0; /
 }
   
   .hero {

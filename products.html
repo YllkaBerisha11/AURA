@@ -22,6 +22,22 @@
         <li><a href="#" id="favorites-icon"><i class="fa fa-heart"></i> <span id="favorites-count">0</span></a></li>
     </ul>
 </nav>
+
+<!-- Dropdown për Shportën -->
+<div id="cart-dropdown" class="dropdown">
+    <h3>Shporta</h3>
+    <ul id="cart-items"></ul>
+    <p id="cart-total"></p>
+    <button id="clear-cart">Pastro Shportën</button>
+  </div>
+  
+  <!-- Dropdown për Favorites -->
+  <div id="favorites-dropdown" class="dropdown">
+    <h3>Favorites</h3>
+    <ul id="favorites-items"></ul>
+    <button id="clear-favorites">Pastro Favorites</button>
+  </div>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -236,7 +252,43 @@
             
         </div>
     </div>
-    <script>
+    
+    
+    <footer>
+
+        <div class="footer-container">
+      
+          <div class="footer-info">
+      
+            <h4>AURA - Cosmetics</h4>
+      
+            <p><i class = "fa fa-map-marker"></i><a href="Mother Teresa, Gjakova, Kosovo">Mother Teresa, Gjakova, Kosovo</a></p>
+      
+            <p><i class = "fa fa-phone"></i> +383 49 636 828 </p>
+      
+            <p><i class="fa fa-envelope"></i> <a href="mailto:auracosmetics@gmail.com">auracosmetics@gmail.com</a></p>
+      
+          </div>
+      
+          
+      
+          <div class="footer-social">
+      
+            <a href="#" target="_blank">Facebook</a>
+      
+            <a href="#" target="_blank">Twitter</a>
+      
+            <a href="#" target="_blank">Instagram</a>
+    
+            <p>&copy; 2024 AURA. All rights reserved.</p>
+      
+      
+          </div>
+      
+        </div>
+      
+      </footer>
+      <script>
         let cartCount = 0;
         let favoritesCount = 0;
 
@@ -296,43 +348,81 @@
                 addToFavorites(product);
             });
         });
-    </script></script>
-    
-    
-    <footer>
+    </script>
+    <script>
+        document.getElementById('cart-icon').addEventListener('click', () => {
+  const cartDropdown = document.getElementById('cart-dropdown');
+  toggleDropdown(cartDropdown, 'cart');
+});
 
-        <div class="footer-container">
-      
-          <div class="footer-info">
-      
-            <h4>AURA - Cosmetics</h4>
-      
-            <p><i class = "fa fa-map-marker"></i><a href="Mother Teresa, Gjakova, Kosovo">Mother Teresa, Gjakova, Kosovo</a></p>
-      
-            <p><i class = "fa fa-phone"></i> +383 49 636 828 </p>
-      
-            <p><i class="fa fa-envelope"></i> <a href="mailto:auracosmetics@gmail.com">auracosmetics@gmail.com</a></p>
-      
-          </div>
-      
-          
-      
-          <div class="footer-social">
-      
-            <a href="#" target="_blank">Facebook</a>
-      
-            <a href="#" target="_blank">Twitter</a>
-      
-            <a href="#" target="_blank">Instagram</a>
-    
-            <p>&copy; 2024 AURA. All rights reserved.</p>
-      
-      
-          </div>
-      
-        </div>
-      
-      </footer>
-          
+// Shfaq dropdown-in për favorites
+document.getElementById('favorites-icon').addEventListener('click', () => {
+  const favoritesDropdown = document.getElementById('favorites-dropdown');
+  toggleDropdown(favoritesDropdown, 'favorites');
+});
+
+// Funksioni për të hapur dhe përditësuar dropdown-in
+function toggleDropdown(dropdown, type) {
+  if (dropdown.style.display === 'block') {
+    dropdown.style.display = 'none';
+  } else {
+    dropdown.style.display = 'block';
+    updateDropdownContent(dropdown, type);
+  }
+}
+
+// Përditëso dropdown-in me të dhënat nga localStorage
+function updateDropdownContent(dropdown, type) {
+  const list = dropdown.querySelector('ul');
+  list.innerHTML = ''; // Pastro listën
+  let items = JSON.parse(localStorage.getItem(type)) || [];
+  let total = 0;
+
+  items.forEach((item, index) => {
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `
+      <img src="${item.image}" alt="${item.name}">
+      <span>${item.name} - ${item.price}</span>
+      <button onclick="removeItem('${type}', ${index})">Hiq</button>
+    `;
+    list.appendChild(listItem);
+
+    // Për llogaritjen e totalit të shportës
+    if (type === 'cart') {
+      total += parseFloat(item.price.replace('$', ''));
+    }
+  });
+
+  if (type === 'cart') {
+    dropdown.querySelector('#cart-total').textContent = `Totali: $${total.toFixed(2)}`;
+  }
+}
+
+// Funksioni për të hequr produkt nga lista
+function removeItem(type, index) {
+  let items = JSON.parse(localStorage.getItem(type)) || [];
+  items.splice(index, 1); // Hiq elementin
+  localStorage.setItem(type, JSON.stringify(items));
+  updateDropdownContent(
+    document.getElementById(type === 'cart' ? 'cart-dropdown' : 'favorites-dropdown'),
+    type
+  );
+  if (type === 'cart') updateCartCount();
+  if (type === 'favorites') updateFavoritesCount();
+}
+
+// Butonat për pastrimin e shportës ose favorites
+document.getElementById('clear-cart').addEventListener('click', () => {
+  localStorage.setItem('cart', JSON.stringify([]));
+  updateCartCount();
+  document.getElementById('cart-dropdown').style.display = 'none';
+});
+
+document.getElementById('clear-favorites').addEventListener('click', () => {
+  localStorage.setItem('favorites', JSON.stringify([]));
+  updateFavoritesCount();
+  document.getElementById('favorites-dropdown').style.display = 'none';
+});
+    </script>
 </body>
 </html>

@@ -4,49 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Products</title>
 </head>
 <body>
+    <nav>
+        <label class="logo">AURA</label>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="aboutUs.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="sales.html">Sales</a></li>
+            <li><a href="contactUs.html">Contact Us</a></li>
+            <li><a href="login.html"><i class="fa fa-user-plus"></i> </a></li>
+            <li><a href="#" id="cart-icon"><i class="fa fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
+            <li><a href="#" id="favorites-icon"><i class="fa fa-heart"></i> <span id="favorites-count">0</span></a></li>
+        </ul>
+    </nav>
+
+    
+    <div id="cart-dropdown" class="dropdown">
+        <h3>Cart</h3>
+        <ul id="cart-items"></ul>
+        <p id="cart-total"></p>
+        <button id="clear-cart">Clear Cart</button>
+    </div>
+
   
-  <nav>
+    <div id="favorites-dropdown" class="dropdown">
+        <h3>Favorites</h3>
+        <ul id="favorites-items"></ul>
+        <button id="clear-favorites">Clear Favorites</button>
+    </div>
+</body>
+</html>
 
-    <label class="logo">AURA</label>
-    <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="aboutUs.html">About Us</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="sales.html">Sales</a></li>
-        <li><a href="contactUs.html">Contact Us</a></li>
-        <li><a href="login.html"><i class="fa fa-user-plus"></i> </a></li>
-        <li><a href="#" id="cart-icon"><i class="fa fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
-        <li><a href="#" id="favorites-icon"><i class="fa fa-heart"></i> <span id="favorites-count">0</span></a></li>
-    </ul>
-</nav>
-
-<!-- Dropdown për Shportën -->
-<div id="cart-dropdown" class="dropdown">
-    <h3>Shporta</h3>
-    <ul id="cart-items"></ul>
-    <p id="cart-total"></p>
-    <button id="clear-cart">Pastro Shportën</button>
-  </div>
-  
-  <!-- Dropdown për Favorites -->
-  <div id="favorites-dropdown" class="dropdown">
-    <h3>Favorites</h3>
-    <ul id="favorites-items"></ul>
-    <button id="clear-favorites">Pastro Favorites</button>
-  </div>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Grid</title>
-    <link rel="stylesheet" href="products.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+      
 </head>
 <body>
     <div class="container">
@@ -292,7 +285,7 @@
         let cartCount = 0;
         let favoritesCount = 0;
 
-        // Funksioni për të shtuar produktin në cart
+      
         function addToCart(product) {
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
             cart.push(product);
@@ -300,7 +293,7 @@
             updateCartCount();
         }
 
-        // Funksioni për të shtuar produktin në favorites
+       
         function addToFavorites(product) {
             let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
             favorites.push(product);
@@ -308,31 +301,31 @@
             updateFavoritesCount();
         }
 
-        // Funksioni për të përditësuar numrin në navbar për cart
+        
         function updateCartCount() {
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
             document.getElementById('cart-count').textContent = cart.length;
         }
 
-        // Funksioni për të përditësuar numrin në navbar për favorites
+       
         function updateFavoritesCount() {
             let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
             document.getElementById('favorites-count').textContent = favorites.length;
         }
 
-        // Ngarkoni numrin e produkteve që janë shtuar në cart dhe favorites kur faqja ngarkohet
+        
         window.onload = function() {
             updateCartCount();
             updateFavoritesCount();
         };
 
-        // Eventet për butonat "Add to Cart" dhe "Add to Favorites"
+     
         document.querySelectorAll('.add-to-cart').forEach(button => {
             button.addEventListener('click', (e) => {
                 const product = {
-                    name: e.target.previousElementSibling.previousElementSibling.textContent, // Emri i produktit
-                    price: e.target.previousElementSibling.textContent, // Çmimi i produktit
-                    image: e.target.previousElementSibling.previousElementSibling.previousElementSibling.src // Imazhi i produktit
+                    name: e.target.previousElementSibling.previousElementSibling.textContent, 
+                    price: e.target.previousElementSibling.textContent, 
+                    image: e.target.previousElementSibling.previousElementSibling.previousElementSibling.src 
                 };
                 addToCart(product);
             });
@@ -341,9 +334,9 @@
         document.querySelectorAll('.favorite').forEach(button => {
             button.addEventListener('click', (e) => {
                 const product = {
-                    name: e.target.previousElementSibling.textContent, // Emri i produktit
-                    price: e.target.previousElementSibling.previousElementSibling.textContent, // Çmimi i produktit
-                    image: e.target.previousElementSibling.previousElementSibling.previousElementSibling.src // Imazhi i produktit
+                    name: e.target.previousElementSibling.textContent, 
+                    price: e.target.previousElementSibling.previousElementSibling.textContent,
+                    image: e.target.previousElementSibling.previousElementSibling.previousElementSibling.src 
                 };
                 addToFavorites(product);
             });
@@ -355,13 +348,13 @@
   toggleDropdown(cartDropdown, 'cart');
 });
 
-// Shfaq dropdown-in për favorites
+
 document.getElementById('favorites-icon').addEventListener('click', () => {
   const favoritesDropdown = document.getElementById('favorites-dropdown');
   toggleDropdown(favoritesDropdown, 'favorites');
 });
 
-// Funksioni për të hapur dhe përditësuar dropdown-in
+
 function toggleDropdown(dropdown, type) {
   if (dropdown.style.display === 'block') {
     dropdown.style.display = 'none';
@@ -371,10 +364,10 @@ function toggleDropdown(dropdown, type) {
   }
 }
 
-// Përditëso dropdown-in me të dhënat nga localStorage
+
 function updateDropdownContent(dropdown, type) {
   const list = dropdown.querySelector('ul');
-  list.innerHTML = ''; // Pastro listën
+  list.innerHTML = ''; 
   let items = JSON.parse(localStorage.getItem(type)) || [];
   let total = 0;
 
@@ -387,7 +380,7 @@ function updateDropdownContent(dropdown, type) {
     `;
     list.appendChild(listItem);
 
-    // Për llogaritjen e totalit të shportës
+    
     if (type === 'cart') {
       total += parseFloat(item.price.replace('$', ''));
     }
@@ -398,10 +391,10 @@ function updateDropdownContent(dropdown, type) {
   }
 }
 
-// Funksioni për të hequr produkt nga lista
+
 function removeItem(type, index) {
   let items = JSON.parse(localStorage.getItem(type)) || [];
-  items.splice(index, 1); // Hiq elementin
+  items.splice(index, 1); 
   localStorage.setItem(type, JSON.stringify(items));
   updateDropdownContent(
     document.getElementById(type === 'cart' ? 'cart-dropdown' : 'favorites-dropdown'),
@@ -411,7 +404,7 @@ function removeItem(type, index) {
   if (type === 'favorites') updateFavoritesCount();
 }
 
-// Butonat për pastrimin e shportës ose favorites
+
 document.getElementById('clear-cart').addEventListener('click', () => {
   localStorage.setItem('cart', JSON.stringify([]));
   updateCartCount();

@@ -1,22 +1,23 @@
 <?php
-
-class Database{
+class Database {
     private $host = 'localhost';
     private $dbname = 'projekti';
-    private $username = 'root';
-    private $password = '';
+    private $username = 'root'; 
+    private $password = '';  
     private $conn;
 
-    public function _construct(){
-        try{
-            $this->conn = new PDO(dsn: "mysql:host={$this->host};dbname={$this->dbname}", username: $this->username, password: $this->password);
-            $this->conn->setAttribute(attribute: PPD::ATTR_ERRMODE, value: PDO::ERRMODE_EXCEPTION)    
-    
+    public function __construct() {
+        try {
+            $this->conn = new PDO("mysql:host={$this->host};dbname={$this->dbname}", $this->username, 
+            $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die("Connection failed: " . $e->getMessage());
+        }
+    }
 
-        }catch()
+    public function getConnection() {
+        return $this->conn;
     }
 }
-
-
-
 ?>

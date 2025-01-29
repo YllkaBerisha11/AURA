@@ -75,22 +75,51 @@ nav ul li a:hover {
 }
 
 .sidebar ul li {
-  margin: 20px 0;
+  margin: 25px 0;
 }
 
 .sidebar ul li a {
   color: white;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.8;
+  padding: 12px 15px;
+  display: block;
+  transition: 0.3s;
+  border-radius: 8px;
 }
 
 .sidebar ul li a:hover {
   color: #007bff;
 }
 
+
 .sidebar.open {
   left: 0;
 }
+
+.sidebar-btn {
+  width: 80%;
+  padding: 8px;
+  background-color: #8c886a;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  font-weight: bold;
+  display: block;
+}
+
+.sidebar-btn:hover {
+  background-color: #5288b4;
+  transform: scale(1.05);
+}
+
 
 .hero {
   background-image: url(Makeup/herogirl.webp);

@@ -28,32 +28,34 @@
 
   <script>
     document.getElementById('loginForm').addEventListener('submit', async function(event) {
-      event.preventDefault();
-      const email = document.getElementById('login-email').value;
-      const password = document.getElementById('login-password').value;
+      document.getElementById('loginForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
 
-      try {
+    try {
         const response = await fetch('process.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams({
-            action: 'login',
-            email: email,
-            password: password
-          })
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+                action: 'login',
+                email: email,
+                password: password
+            })
         });
 
         const result = await response.json();
         if (result.success) {
-          alert(`Login successful! Welcome, ${result.role}.`);
-          window.location.href = 'home.html'; 
+            alert(`Login successful! Welcome, ${result.role}.`);
+            window.location.href = 'home.html'; 
         } else {
-          document.getElementById('login-error').style.display = 'block';
+            document.getElementById('login-error').style.display = 'block';
         }
-      } catch (error) {
+    } catch (error) {
         console.error('Error during login:', error);
-      }
-    });
+    }
+});
+
   </script>
 </body>
 </html>

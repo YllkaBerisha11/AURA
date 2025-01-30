@@ -37,38 +37,41 @@
 
   <script>
     document.getElementById('registerForm').addEventListener('submit', async function(event) {
-      event.preventDefault();
-      const name = document.getElementById('register-name').value;
-      const lastname = document.getElementById('register-lastname').value;
-      const email = document.getElementById('register-email').value;
-      const password = document.getElementById('register-password').value;
+        document.getElementById('registerForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const name = document.getElementById('register-name').value;
+    const lastname = document.getElementById('register-lastname').value;
+    const email = document.getElementById('register-email').value;
+    const password = document.getElementById('register-password').value;
 
-      try {
+    try {
         const response = await fetch('process.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams({
-            action: 'register',
-            name: name,
-            lastname: lastname,
-            email: email,
-            password: password
-          })
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+                action: 'register',
+                name: name,
+                lastname: lastname,
+                email: email,
+                password: password
+            })
         });
 
         const result = await response.text();
 
         if (result === 'success') {
-          document.getElementById('register-success').style.display = 'block';
-          setTimeout(function() {
-            window.location.href = 'home.html';
-          }, 2000); 
+            document.getElementById('register-success').style.display = 'block';
+            setTimeout(function() {
+                window.location.href = 'home.html';
+            }, 2000);
         } else {
-          document.getElementById('register-error').style.display = 'block';
+            document.getElementById('register-error').style.display = 'block';
         }
-      } catch (error) {
+    } catch (error) {
         console.error('Error during registration:', error);
-      }
+    }
+});
+
     });
   </script>
 </body>

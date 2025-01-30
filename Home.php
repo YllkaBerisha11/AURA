@@ -1,7 +1,20 @@
 <?php
-session_start();
-$isLoggedIn = isset($_SESSION['username']);
+include_once 'Session.php';
+
+
+Session::startSession();
+
+
+if (!Session::isLoggedIn()) {
+
+    header("Location: login.php");
+    exit();
+}
+
+echo "<p>Welcome, " . Session::get('username') . "!</p>";
+echo "<a href='logout.php'>Logout</a>";
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,7 +1,10 @@
 <?php
-session_start();
+
 include_once 'Database.php';
 include_once 'User.php';
+include_once 'Session.php';
+
+Session::startSession();
 
 $database = new Database();
 $conn = $database->getConnection();
@@ -12,14 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     $loggedInUser = $user->login($email, $password);
-    
+
     if ($loggedInUser) {
-        $_SESSION['username'] = $loggedInUser['name'];
-        $_SESSION['email'] = $loggedInUser['email'];
-        header("Location: home.php"); 
+        Session::set('username', $loggedInUser['name']);
+        Session::set('email', $loggedInUser['email']);
+        header("Location: home.php");
         exit;
     } else {
-        echo "<script>alert('Oops!!! Email ose Fjalëkalimi janë gabim, të lutem provo përsëri!')</script>";
+        echo "<script>alert('Oops!!! Email or Password is incorrect, please try again!')</script>";
     }
 }
 ?>

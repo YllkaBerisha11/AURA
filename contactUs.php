@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="contact" id="ContactUs">
         <div class="container">
             <h1>Contact Us</h1>
-            <form action="contact_process.php" method="POST">
+            <form method="POST">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Write your first name" required>
 

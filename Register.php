@@ -1,28 +1,26 @@
 <?php
-session_start();
 include_once 'Database.php';
 include_once 'User.php';
 
-
-$database = new Database();
-$conn = $database->getConnection();
-$user = new User($conn);
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $db = new Database();
+    $connection = $db->getConnection();
+    $user = new User($connection);
+
     $name = $_POST['name'];
     $surname = $_POST['surname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+ 
     if ($user->register($name, $surname, $email, $password)) {
-        echo "<script>alert('Congratulations, you have successfully registered!'); window.location='login.php';</script>";
+        header("Location: login.php"); 
         exit;
     } else {
-        echo "<script>alert('Oops! Email already exists.');</script>";
+        echo "Error registering user!";
     }
 }
 ?>
-
 <form action="register.php" method="POST">
     <link rel="stylesheet" href="loginregister.css">
     <p class="login-text">AURA - Register</p>

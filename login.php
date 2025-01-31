@@ -1,31 +1,24 @@
 <?php
-
+session_start();
 include_once 'Database.php';
 include_once 'User.php';
-include_once 'Session.php';
-
-Session::startSession();
-
-$database = new Database();
-$conn = $database->getConnection();
-$user = new User($conn);
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $db = new Database();
+    $connection = $db->getConnection();
+    $user = new User($connection);
+
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $loggedInUser = $user->login($email, $password);
-
-    if ($loggedInUser) {
-        Session::set('username', $loggedInUser['name']);
-        Session::set('email', $loggedInUser['email']);
-        header("Location: home.php");
+    if ($user->login($email, $password)) {
+        header("Location: home.php"); 
         exit;
     } else {
-        echo "<script>alert('Oops!!! Email or Password is incorrect, please try again!')</script>";
+        echo "Invalid login credentials!";
     }
 }
 ?>
+
 
 <form action="login.php" method="POST">
     <link rel="stylesheet" href="loginregister.css">

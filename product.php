@@ -1,12 +1,45 @@
 <?php
-require_once 'Database.php';  
-require_once 'ProductClass.php';   
+session_start(); 
 
+require_once 'Database.php'; 
+
+class Product {
+    private $conn;
+    private $table = 'products';   
+
+    public function __construct($db) {
+        $this->conn = $db;
+    }
+
+    public function addProduct($name, $description, $price) {
+        $query = "INSERT INTO {$this->table} (name, description, price) VALUES (:name, :description, :price)";
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':description', $description);
+        $stmt->bindParam(':price', $price);
+
+        return $stmt->execute(); 
+    }
+}
+
+class Auth {
+    public static function checkLogin() {
+        return isset($_SESSION['user_id']);
+    }
+
+    public static function login($user_id) {
+        $_SESSION['user_id'] = $user_id;
+    }
+
+    public static function logout() {
+        session_unset();
+        session_destroy();
+    }
+}
 
 $database = new Database();
 $db = $database->getConnection();
-
-
 $product = new Product($db);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -19,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($product->addProduct($name, $description, $price)) {
             echo "Product successfully added!";
         } else {
-            echo "An error occurred while adding the product!"; 
+            echo "An error occurred while adding the product!";
         }
     } else {
         echo "Please fill in all fields!";
@@ -33,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="productsProduct.css">
-    <title>Shto Produkt</title>
+    <title>Add Product</title>
 </head>
 <body>
     <h1>Add Product</h1>

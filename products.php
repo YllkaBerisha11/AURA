@@ -1,4 +1,12 @@
-<?php include('auth.php'); 
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php"); 
+    exit;
+}
+
+echo "Welcome, " . $_SESSION['email'] . "!";
 ?>
 
 <!DOCTYPE html>
@@ -109,7 +117,7 @@
             </div>
     
             <div class="product-box">
-                <img src="Makeup/rareblush.jpg" alt="Product7" class="product-image>
+                <img src="Makeup/rareblush.jpg" alt="Product7" class="product-image"S>
                 <h3 class="product-title">Rare Beauty Blush</h3>
                 <p class="product-price">$20</p>
                 <button class="add-to-cart">Add to Cart</button>

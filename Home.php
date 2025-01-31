@@ -1,21 +1,14 @@
 <?php
-include_once 'Session.php';
+session_start();
 
-
-Session::startSession();
-
-
-if (!Session::isLoggedIn()) {
-
-    header("Location: login.php");
-    exit();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php"); 
+    exit;
 }
 
-echo "<p>Welcome, " . Session::get('username') . "!</p>";
-echo "<a href='logout.php'>Logout</a>";
+echo "Welcome, " . $_SESSION['email'] . "!";
 ?>
-
-
+<a href="logout.php">Logout</a>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,26 +37,7 @@ echo "<a href='logout.php'>Logout</a>";
     </ul>
 </nav>
 
-<div class="sidebar-toggle">
-    <i class="fa fa-arrow-left"></i> 
-</div>
 
-
-<div class="sidebar">
-    <h2>Side Menu</h2>
-    <ul>
-        <li><a href="home.html"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="aboutUs.html"><i class="fa fa-user"></i> About Us</a></li>
-        <li><a href="contactUs.html"><i class="fa fa-envelope"></i> Contact</a></li>
-        <li><a href="sales.html"><i class="fa fa-gift"></i> Sales</a></li>
-                    <li><a href="products.html">Makeup Products</a></li>
-                </ul>
-                <a href="Logout.php" class="sidebar-btn">Log out</a>
-
-            </div>
-        </li>
-    </ul>
-</div>
 <!--Pjesa kryesore e faqes-->
 <div class="hero">
     <div class="container">

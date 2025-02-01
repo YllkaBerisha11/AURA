@@ -423,22 +423,11 @@ form input[type="submit"]:hover {
   animation: fadeIn 0.5s ease-out, fadeOut 0.5s ease-in 3s forwards;
   z-index: 1000;
   min-width: 350px;
-  display: none; /* Fillimisht e fshehur */
+  display: none;
 }
 
-/* Mesazhi i suksesit */
-.success {
-  background-color: #4CAF50;
-  color: white;
-}
 
-/* Mesazhi i gabimit */
-.error {
-  background-color: #f44336;
-  color: white;
-}
 
-/* Butoni X për mbyllje */
 .alert-close {
   position: absolute;
   top: 10px;
@@ -453,7 +442,7 @@ form input[type="submit"]:hover {
   color: #ddd;
 }
 
-/* Animacioni i shfaqjes dhe zhdukjes */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -476,7 +465,7 @@ form input[type="submit"]:hover {
 }
 
 
-/* Responsive: për pajisje më të vogla */
+/* Responsive */
 @media (max-width: 1024px) {
     form {
         width: 80%;

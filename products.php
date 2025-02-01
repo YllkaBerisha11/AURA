@@ -14,7 +14,7 @@ echo "Welcome, " . $_SESSION['email'] . "!";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="productsProduct.css">
+    <link rel="stylesheet" href="products.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Products</title>
 </head>
@@ -256,16 +256,6 @@ echo "Welcome, " . $_SESSION['email'] . "!";
             
         </div>
     </div>
-    <div class="success">
-  Product successfully added!
-  <span class="alert-close" onclick="this.parentElement.style.display='none';">&times;</span>
-</div>
-    
-<div class="error">
-  Error! Please try again.
-  <span class="alert-close" onclick="this.parentElement.style.display='none';">&times;</span>
-</div>
-    
     <footer>
 
         <div class="footer-container">

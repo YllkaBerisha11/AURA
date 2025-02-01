@@ -1,7 +1,7 @@
 <?php
-include('Database.php'); // Sigurohu që ky skedar është korrekt
+include('Database.php'); 
 
-// Kontrollo nëse formulari është dërguar
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $lastname = $_POST['lastname'];
@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $db = new Database();
         $conn = $db->getConnection();
         
-        // Kontrollo nëse të dhënat janë të vlefshme
+        
         if (!empty($name) && !empty($lastname) && !empty($email) && !empty($message) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $sql = "INSERT INTO contact_us(name, lastname, email, message) VALUES (:name, :lastname, :email, :message)";
             $stmt = $conn->prepare($sql);
@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="contactUs.css">
     <title>AURA</title>
 </head>
@@ -47,12 +48,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <nav>
         <label class="logo">AURA</label>
         <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="aboutUs.html">About Us</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="sales.html">Sales</a></li>
-            <li><a href="contactUs.html">Contact Us</a></li>
-            <li><a href="login.html"><i class="fas fa-user-plus"></i> </a></li>
+        <li><a href="home.php">Home</a></li>
+        <li><a href="aboutUs.html">About Us</a></li>
+        <li><a href="products.php">Products</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li><a href="contactUs.php">Contact Us</a></li>
+        <li><a href="login.php"><i class="fa fa-user-plus"></i> </a></li>
         </ul>
     </nav>
 
@@ -69,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="Write your email" required>
 
-                <label for="message">Message (optional):</label>
+                <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="5" placeholder="Write your message" required></textarea>
 
                 <button type="submit">Submit</button>

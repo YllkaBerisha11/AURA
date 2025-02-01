@@ -28,11 +28,15 @@ echo "Welcome, " . $_SESSION['email'] . "!";
 
     <label class="logo">AURA</label>
     <ul>
-        <li><a href="home.html">Home</a></li>
+        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+        <li><a href="dashboard.php"><i class="fas fa-chart-line"></i></i></a></li> <!-- Admin Dashboard Icon -->
+    <?php endif; ?>
+
+        <li><a href="home.php">Home</a></li>
         <li><a href="aboutUs.html">About Us</a></li>
-        <li><a href="products.html">Products</a></li>
+        <li><a href="products.php">Products</a></li>
         <li><a href="sales.html">Sales</a></li>
-        <li><a href="contactUs.html">Contact Us</a></li>
+        <li><a href="contactUs.php">Contact Us</a></li>
         <li><a href="login.php"><i class="fa fa-user-plus"></i> </a></li>
     </ul>
 </nav>

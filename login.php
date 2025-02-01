@@ -2,6 +2,7 @@
 session_start();
 include_once 'Database.php';
 include_once 'User.php';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $db = new Database();
     $connection = $db->getConnection();
@@ -11,15 +12,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     if ($user->login($email, $password)) {
-        header("Location: home.php"); 
+        
+        if ($_SESSION['role'] === 'admin') {
+            header("Location: dashboard.php"); 
+        } else {
+            header("Location: Home.php"); 
+        }
         exit;
     } else {
         echo "Invalid login credentials!";
     }
 }
 ?>
-
-
 <form action="login.php" method="POST">
     <link rel="stylesheet" href="loginregister.css">
     <p class="login-text">AURA - Login</p>

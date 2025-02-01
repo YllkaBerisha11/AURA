@@ -22,12 +22,12 @@ echo "Welcome, " . $_SESSION['email'] . "!";
     <nav>
         <label class="logo">AURA</label>
         <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="aboutUs.html">About Us</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="sales.html">Sales</a></li>
-            <li><a href="contactUs.html">Contact Us</a></li>
-            <li><a href="login.html"><i class="fa fa-user-plus"></i> </a></li>
+        <li><a href="home.php">Home</a></li>
+        <li><a href="aboutUs.html">About Us</a></li>
+        <li><a href="products.php">Products</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li><a href="contactUs.php">Contact Us</a></li>
+        <li><a href="login.php"><i class="fa fa-user-plus"></i> </a></li>
             <li><a href="#" id="cart-icon"><i class="fa fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
             <li><a href="#" id="favorites-icon"><i class="fa fa-heart"></i> <span id="favorites-count">0</span></a></li>
         </ul>

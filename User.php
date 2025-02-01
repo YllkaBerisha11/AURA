@@ -75,4 +75,5 @@ class User {
 
         return false;
     }
-}?>
+}
+?>

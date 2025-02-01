@@ -14,10 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($user->register($name, $surname, $email, $password)) {
         echo "Registration successful!";
+        header("Location: login.php");
+        exit();
     } else {
         echo "Registration failed! The email may already exist.";
     }
-}
+} 
 ?>
 
 <form action="register.php" method="POST">

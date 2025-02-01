@@ -30,5 +30,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     Email: <input type="email" name="email" required><br>
     Password: <input type="password" name="password" required><br>
     <button type="submit">Login</button>
-    <p class="login-register-text"> Don't have an account?<a href="register.php"> Register now!</a></p>
+    <p class="login-register-text"> Don't have an account?<a href="Register.php"> Register now!</a></p>
 </form>

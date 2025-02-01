@@ -15,12 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($user->register($name, $surname, $email, $password)) {
         echo "Registration successful!";
     } else {
-        echo "Registration failed!";
+        echo "Registration failed! The email may already exist.";
     }
 }
 ?>
 
-<form action="login.php" method="POST">
+<form action="register.php" method="POST">
     <link rel="stylesheet" href="loginregister.css">
     <p class="login-text">AURA - Register</p>
     Name: <input type="text" name="name" required><br>
@@ -28,5 +28,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     Email: <input type="email" name="email" required><br>
     Password: <input type="password" name="password" required><br>
     <button type="submit">Register</button>
-    <p class="login-register-text"> Do you have an account?<a href="register.php"> Login now!</a></p>
+    <p class="login-register-text"> Do you have an account?<a href="login.php"> Login now!</a></p>
 </form>

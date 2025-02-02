@@ -14,12 +14,14 @@ nav {
   top: 0;
   z-index: 1000;
 }
+
 nav .logo {
   font-size: 40px;
   font-weight: bold;
   color: #0a0309;
-  padding: 0 100px 0 100px;
+  padding: 0 100px;
 }
+
 nav ul {
   list-style: none;
   display: flex;
@@ -27,20 +29,21 @@ nav ul {
   margin: 0;
   padding: 0 200px;
 }
+
 nav ul li a {
-text-decoration: none;
-color: rgb(6, 3, 3);
-transition: 0.5s;
-font-size: 30px; 
+  text-decoration: none;
+  color: rgb(6, 3, 3);
+  transition: 0.5s;
+  font-size: 30px;
 }
+
 nav ul li a:hover {
   color: #8f8e8e;
   transform: scale(1.1);
   text-decoration: underline;
 }
 
-.hero 
-{
+.hero {
   background-image: url(Makeup/herogirl.webp);
   background-size: cover;
   color: white;
@@ -71,39 +74,41 @@ nav ul li a:hover {
 .Products {
   text-align: center;
   padding: 30px 30px;
-  background-color: white;
-  width: 80%;
-  height: 50%;
+  background-color: #fcecfb;
+  max-width: 1300px;
   margin: 0 auto;
+  padding-bottom: 50px;
+  position: relative;
+  min-height: 600px;
+  z-index: 2;
 }
 
 .Products h1 {
-  font-size: 50px;
-  color: #080204;
-  margin-bottom: 40px;
-  margin-top: 5px;
+  font-size: 40px;
+  color: #060202;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-weight: bold;
 }
 
 .product-grid {
   display: flex;
   justify-content: center;
   gap: 30px;
-  padding: 20px;
   flex-wrap: wrap;
-  overflow-x: hidden;
+  padding: 20px;
 }
 
 .product-box {
   background-color: rgb(254, 254, 254);
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  text-align: center;
   width: 400px;
   height: 400px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  display: inline-block;
+  text-align: center;
   margin: 10px;
 }
 
@@ -114,149 +119,14 @@ nav ul li a:hover {
   border-radius: 50%;
 }
 
-.product-box h3 {
-  margin: 10px 0;
-  font-size: 18px;
-  color: #333;
-}
-
-.product-box button {
-  padding: 1px 1px;
-  background-color: #d81b60;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 20px;
-}
-
-.product-box button:hover {
-  background-color: #f4a261;
-}
-
-.slideshow-container {
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-#slideshow {
-  width: 100%;
-  height: 900px;
-  object-fit: cover;
-  object-position: center;
-}
-
-@media (max-width: 768px) {
-  .slideshow-container {
-    width: 95%;
-  }
-
-  #slideshow {
-    height: 250px;
-  }
-}
-
-.Products {
-  text-align: center;
-  padding: 30px 30px;
-  background-color: #fcecfb;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding-bottom: 20px;
-  position: relative;
-}
-
-.Products h1 {
-  font-size: 40px;
-  color: #060202;
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 30px;
-  font-weight: bold;
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-}
-
-.Products .container {
-  display: flex;
-  justify-content: center;
-  gap: 300px;
-  flex-wrap: wrap;
-  padding: 50px;
-}
-
-.card {
-  width: 300px;
-  margin-bottom: 30px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.card .front {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fdf9f9;
-}
-
-.card .front img {
-  width: 100%;
-  height: 80%;
-  object-fit: contain;
-}
-
-.card .front h2 {
-  position: absolute;
-  bottom: -10px;
-  width: 100%;
-  font-size: 20px;
-  color: rgb(5, 5, 5);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-  font-weight: bold;
-}
-
-@media (max-width: 768px) {
-  .product-box {
-    width: 200px;
-    height: 200px;
-  }
-  .product-grid {
-    justify-content: space-evenly;
-  }
-  .card {
-    width: calc(100% - 20px);
-  }
-  .hero .title {
-    font-size: 36px;
-  }
-  .hero {
-    padding: 50px 20px;
-  }
-}
-
 footer {
   background-color: #0b233d;
   color: #ffffff;
-  padding: 0;
+  padding: 20px;
+  text-align: center;
   font-family: Arial, sans-serif;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-container {
@@ -265,7 +135,7 @@ footer {
   flex-wrap: wrap;
   max-width: 800px;
   margin: 0 auto;
-  gap: 100px;
+  gap: 50px;
 }
 
 .footer-container div {
@@ -275,17 +145,14 @@ footer {
 }
 
 .footer-container h4 {
-  margin-bottom: 10px;
   font-size: 20px;
   font-weight: bold;
   color: #e8e8e8;
   border-bottom: 2px solid #f9a826;
-  padding-bottom: 0px;
-  padding-top: 2px;
+  padding-bottom: 5px;
 }
 
 .footer-container p {
-  margin: 5px 0;
   font-size: 14px;
   color: #c7c7c7;
 }
@@ -302,28 +169,37 @@ footer {
   text-decoration: underline;
 }
 
-.footer-container i {
-  margin-right: 10px;
-  color: #f9a826;
-}
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.footer-container img {
-  vertical-align: middle;
-  margin-right: 10px;
-}
+  nav ul {
+    flex-direction: column;
+    padding: 0;
+  }
 
-.footer-social a {
-  margin-top: 30px;
-  display: flex;
-  align-items: center;
-  color: #c7c7c7;
-  text-decoration: none;
-  margin-bottom: 15px;
-  font-size: 14px;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
+  .hero {
+    padding: 150px 20px;
+  }
 
-.footer-social a:hover {
-  color: #ffffff;
-  transform: scale(1.2);
+  .hero .title {
+    font-size: 36px;
+  }
+
+  .product-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-box {
+    width: 300px;
+    height: 300px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }

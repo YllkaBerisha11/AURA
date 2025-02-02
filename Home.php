@@ -174,24 +174,33 @@ echo "Welcome, " . $_SESSION['email'] . "!";
   
   </footer>
  <script>
-  var i = 0;
-  var imgArray = [
-  "Makeup/HeroRare.jpg",
-  "Makeup/rarefotos.jpg",
-  "Makeup/baking.jpg",
-  "Makeup/qikatslider.png",
-  "Makeup/sherki.webp"
-  ];
-  function ndrroImg() {
-  document.getElementById('slideshow').src = imgArray[i];
-  if (i < imgArray.length - 1) {
-  i++;
-  } else {
-  i = 0;
-  }
-  setTimeout("ndrroImg()",4000 )
-  }
-  document.body.addEventListener('load', ndrroImg());
+  document.addEventListener("DOMContentLoaded", function() {
+    var i = 0;
+    var imgArray = [
+        "Makeup/HeroRare.jpg",
+        "Makeup/rarefotos.jpg",
+        "Makeup/baking.jpg",
+        "Makeup/qikatslider.png",
+        "Makeup/sherki.webp"
+    ];
+    
+    function ndrroImg() {
+        var imgElement = document.getElementById('slideshow');
+        imgElement.style.opacity = "0"; 
+
+        setTimeout(() => {
+            imgElement.src = imgArray[i];
+            imgElement.style.opacity = "1";
+            i = (i + 1) % imgArray.length;
+        }, 500); 
+        
+        setTimeout(ndrroImg, 4000); 
+    }
+
+    ndrroImg(); 
+    
+});
+
   </script>
 
   <script>

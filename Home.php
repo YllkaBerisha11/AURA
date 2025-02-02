@@ -8,7 +8,6 @@ if (!isset($_SESSION['user_id'])) {
 
 echo "Welcome, " . $_SESSION['email'] . "!";
 ?>
-<a href="logout.php">Logout</a>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +37,7 @@ echo "Welcome, " . $_SESSION['email'] . "!";
         <li><a href="sales.html">Sales</a></li>
         <li><a href="contactUs.php">Contact Us</a></li>
         <li><a href="login.php"><i class="fa fa-user-plus"></i> </a></li>
+        <li><a href="logout.php" class="logout"><i class="fas fa-sign-out-alt"></i></a></li>
     </ul>
 </nav>
 

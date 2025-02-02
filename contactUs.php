@@ -82,6 +82,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
             <?php endif; ?>
         </div>
+        <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345095476!2d144.95592331590405!3d-37.81720997975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d482f8dfd97%3A0x2e6d62ef8f5bb5b8!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1632999533775!5m2!1sen!2sau" allowfullscreen="" loading="lazy"></iframe>
+            </div>
     </div>
 
     <footer>

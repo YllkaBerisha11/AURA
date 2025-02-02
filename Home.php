@@ -1,3 +1,17 @@
+Conversation opened. 1 unread message.
+
+Skip to content
+Using Gmail with screen readers
+Enable desktop notifications for Gmail.
+   OK  No thanks
+1 of 144
+(no subject)
+Inbox
+
+Yllka Berisha
+8:33 PM (2 minutes ago)
+to me
+
 <?php
 session_start();
 
@@ -57,37 +71,55 @@ echo "Welcome, " . $_SESSION['email'] . "!";
     <div class="product-box">
         <img src="Makeup/eyeshadow.png" alt="Product1" class="product-image">
         <h3 class="product-title">Eyeshadow</h3>
-        <button class="product-button">View Details</button>
+        <a href="products.php" class="product-button">
+  <button>View Details</button>
+</a>
+
     </div>
 
     <div class="product-box">
         <img src="Makeup/paletteNyx.png" alt="Product2" class="product-image">
         <h3 class="product-title">Contour</h3>
-        <button class="product-button">View Details</button>
+        <a href="products.php" class="product-button">
+  <button>View Details</button>
+</a>
+
     </div>
 
     <div class="product-box">
         <img src="Makeup/lip.liner.mario.png" alt="Product3" class="product-image">
         <h3 class="product-title">LipLiner</h3>
-        <button class="product-button">View Details</button>
+        <a href="products.php" class="product-button">
+  <button>View Details</button>
+</a>
+
     </div>
 
     <div class="product-box">
         <img src="Makeup/mascaraClinique.png" alt="Product4" class="product-image">
         <h3 class="product-title">Mascara</h3>
-        <button class="product-button">View Details</button>
+        <a href="products.php" class="product-button">
+  <button>View Details</button>
+</a>
+
     </div>
 
     <div class="product-box">
         <img src="Makeup/benefit.png" alt="Product5" class="product-image">
         <h3 class="product-title">Brow Setter</h3>
-        <button class="product-button">View Details</button>
+        <a href="products.php" class="product-button">
+  <button>View Details</button>
+</a>
+
     </div>
 
     <div class="product-box">
         <img src="Makeup/fenty.png" alt="Product6" class="product-image">
         <h3 class="product-title">Highlighter</h3>
-        <button class="product-button">View Details</button>
+        <a href="products.php" class="product-button">
+  <button>View Details</button>
+</a>
+
     </div>
 
 
@@ -220,4 +252,5 @@ echo "Welcome, " . $_SESSION['email'] . "!";
 
  
 </body>
-</html> 
+</html>
+ 

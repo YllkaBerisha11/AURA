@@ -105,7 +105,7 @@ echo "Welcome, " . $_SESSION['email'] . "!";
 
 <div class="Products" id="Products">
     <div class="container">
-        <h1>Products</h1>
+    
 
         <div class="card">
             <div class="front">

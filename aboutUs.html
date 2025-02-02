@@ -21,16 +21,6 @@
             <li><a href="login.php"><i class="fa fa-user-plus"></i> </a></li>
         </ul>
     </nav>
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Aura Makeup - About Us</title>
-        <link rel="stylesheet" href="styles.css"> <!-- External CSS Link -->
-    </head>
-    <body>
     
     <div class="slider-container">
         <div class="slider">
@@ -59,32 +49,6 @@
         <span class="slider-nav prev">&lt;</span>
         <span class="slider-nav next">&gt;</span>
     </div>
-    
-    <script>
-        const slides = document.querySelectorAll('.slider-box');
-        let currentIndex = 0;
-    
-        slides[currentIndex].style.display = 'block';
-
-        function showNextSlide() {
-            slides[currentIndex].style.display = 'none';
-            currentIndex = (currentIndex + 1) % slides.length;
-            slides[currentIndex].style.display = 'block';
-        }
-        function showPrevSlide() {
-            slides[currentIndex].style.display = 'none';
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            slides[currentIndex].style.display = 'block';
-        }
-   
-        document.querySelector('.next').addEventListener('click', showNextSlide);
-        document.querySelector('.prev').addEventListener('click', showPrevSlide);
-
-        setInterval(showNextSlide, 5000);
-    </script>
-    
-    </body>
-    </html>
     
     <footer>
 
@@ -120,5 +84,28 @@
         </div>
       
       </footer>
+      <script>
+        const slides = document.querySelectorAll('.slider-box');
+        let currentIndex = 0;
+    
+        slides[currentIndex].style.display = 'block';
+
+        function showNextSlide() {
+            slides[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].style.display = 'block';
+        }
+        function showPrevSlide() {
+            slides[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            slides[currentIndex].style.display = 'block';
+        }
+   
+        document.querySelector('.next').addEventListener('click', showNextSlide);
+        document.querySelector('.prev').addEventListener('click', showPrevSlide);
+
+        setInterval(showNextSlide, 5000);
+    </script>
+    
 </body>
 </html>

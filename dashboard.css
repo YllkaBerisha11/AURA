@@ -1,4 +1,49 @@
-.dashboard-container {
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, rgb(199, 214, 233), #6391cab6); 
+    color: #090909;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  nav .logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 0 100px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    margin: 0;
+    padding: 0 200px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: rgb(6, 3, 3);
+    transition: 0.5s;
+    font-size: 30px;
+  }
+  
+  nav ul li a:hover {
+    color: #8f8e8e;
+    transform: scale(1.1);
+    text-decoration: underline;
+  }
+
+  .dashboard-container {
     max-width: 1200px;
     margin: 50px auto;
     padding: 20px;
@@ -13,10 +58,10 @@
 }
 
 .box {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(131, 196, 247, 0.2);
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(87, 125, 154, 0.349);
     transition: all 0.3s ease;
     flex: 1 1 300px;
     max-width: 450px;
@@ -25,30 +70,30 @@
 }
 
 .box:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(130, 190, 242, 0.112);
     transform: translateY(-5px);
 }
 
 .box h2 a {
-    color: #ff69b4;
+    color: #172868;
     text-decoration: none;
-    font-size: 1.8rem;
+    font-size: 30px;
     transition: color 0.3s ease;
 }
 
 .box h2 a:hover {
-    color: #ff1493;
+    color: #030303;
 }
 
 .box p {
-    font-size: 2.2rem;
+    font-size: 20px;
     font-weight: bold;
     margin-top: 10px;
-    color: #fff;
+    color: #000000;
 }
 
 .data-container {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(77, 101, 124, 0.445);
     padding: 30px;
     border-radius: 12px;
     margin: 20px auto;
@@ -58,8 +103,8 @@
 
 .data-container h3 {
     margin-bottom: 20px;
-    font-size: 1.8rem;
-    color: #ff69b4;
+    font-size: 30px;
+    color: #162653;
 }
 
 .data-container form {
@@ -72,7 +117,7 @@
 .data-container form input {
     width: 80%;
     padding: 12px;
-    font-size: 1rem;
+    font-size: 20px;
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.2);
@@ -85,8 +130,8 @@
 
 .data-container form button {
     padding: 12px 25px;
-    font-size: 1rem;
-    background: #ff1493;
+    font-size: 20px;
+    background: #2e3f4a;
     border: none;
     border-radius: 8px;
     color: #fff;
@@ -95,7 +140,7 @@
 }
 
 .data-container form button:hover {
-    background: #ff69b4;
+    background: #659fd2;
     transform: scale(1.05);
 }
 
@@ -117,7 +162,7 @@
 
 .data-container table th {
     background: rgba(255, 255, 255, 0.3);
-    color: #ff69b4;
+    color: #bababa;
 }
 
 @media (max-width: 768px) {

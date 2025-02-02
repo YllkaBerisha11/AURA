@@ -41,7 +41,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #ffcc00;
+    color: #27cb45;
 }
 
 .dashboard-container {
@@ -73,7 +73,7 @@ nav ul li a:hover {
 
 .box h2 a {
     text-decoration: none;
-    color: #ffcc00;
+    color: #fe3ef4;
 }
 
 .data-container {
@@ -102,7 +102,7 @@ table th {
 }
 
 button {
-    background: #ffcc00;
+    background: #d84b09;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -113,7 +113,7 @@ button {
 }
 
 button:hover {
-    background: #ffaa00;
+    background: #030b61;
 }
 
 /* Responsive Design */

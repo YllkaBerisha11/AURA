@@ -1,17 +1,3 @@
-Conversation opened. 1 unread message.
-
-Skip to content
-Using Gmail with screen readers
-Enable desktop notifications for Gmail.
-   OK  No thanks
-1 of 144
-(no subject)
-Inbox
-
-Yllka Berisha
-8:33 PM (2 minutes ago)
-to me
-
 <?php
 session_start();
 

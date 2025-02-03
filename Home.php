@@ -1,17 +1,3 @@
-Conversation opened. 1 unread message.
-
-Skip to content
-Using Gmail with screen readers
-Enable desktop notifications for Gmail.
-   OK  No thanks
-1 of 144
-(no subject)
-Inbox
-
-Yllka Berisha
-8:33 PM (2 minutes ago)
-to me
-
 <?php
 session_start();
 
@@ -234,23 +220,6 @@ echo "Welcome, " . $_SESSION['email'] . "!";
 });
 
   </script>
-
-  <script>
-    
-    document.querySelector('.sidebar-toggle').addEventListener('click', function() {
-        document.querySelector('.sidebar').classList.toggle('open');
-        const arrow = document.querySelector('.sidebar-toggle i');
-        if (document.querySelector('.sidebar').classList.contains('open')) {
-            arrow.classList.remove('fa-arrow-left');
-            arrow.classList.add('fa-arrow-right');
-        } else {
-            arrow.classList.remove('fa-arrow-right');
-            arrow.classList.add('fa-arrow-left');
-        }
-    });
-</script>
-
- 
 </body>
 </html>
  
